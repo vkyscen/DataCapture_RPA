@@ -1,0 +1,13 @@
+How to fix the Compiler Error:
+
+If you are getting an error like the one below when you run the robot it is most likely because the expression customersData(rowNumber)("last name").toString cannot be indexed:
+
+ERROR MESSAGE: Compiler error(s) encountered processing expression "customersData(rowNumber)("last name").toString". Class 'System.Data.DataTable' cannot be indexed because it has no default property.
+
+To solve this proplem, add .Rows like below:
+
+customersData.Rows(rowNumber)("last name").toString
+
+You will need to add .Rows for all the "Type Into" activities which use a similar expression.
+
+The reason it worked for me in the video and not for you is because i was using an older version of UiPath and an update must've changed this.
